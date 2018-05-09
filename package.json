@@ -2,10 +2,14 @@
   "name": "dominant-color-test",
   "version": "1.0.0",
   "description": "get dominant color from image test",
-  "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --hot"
   },
   "dependencies": {
+    "canvas": "^1.6.10",
+    "colorify.js": "^1.0.3",
+    "huey": "^2.0.0",
+    "node-vibrant": "^3.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },
