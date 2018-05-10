@@ -10,7 +10,10 @@ export default class VibrantComponent extends DOMSetter {
   componentDidMount() {
     this.images.map((image, idx) => {
       Vibrant.from(`./src/images/${image}.jpg`).getPalette((err, palette) => {
-        document.getElementById(`${this.id_text}_${idx}`).style.background = `rgba(${palette.Vibrant._rgb[0]}, ${palette.Vibrant._rgb[1]}, ${palette.Vibrant._rgb[2]}, 1)`;
+        const idString = `${this.id_text}_${idx}`;
+        console.log(`${idString} : r(${palette.Vibrant._rgb[0]}) g(${palette.Vibrant._rgb[1]}) b(${palette.Vibrant._rgb[2]})`);
+        document.getElementById(`${idString}`).style.background = `rgba(${palette.Vibrant._rgb[0]}, ${palette.Vibrant._rgb[1]}, ${palette.Vibrant._rgb[2]}, 1)`;
+        document.getElementById(`${idString}_text`).style.color = this.getTextColor(palette.Vibrant._rgb[0], palette.Vibrant._rgb[1], palette.Vibrant._rgb[2]);
       })
     })
   }
