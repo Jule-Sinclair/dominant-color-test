@@ -6,6 +6,29 @@ export default class DOMSetter extends React.Component {
     this.images = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17];
     this.id_text = '';
   }
+  colorBlocksRenderer(idx) {
+    return (
+      <div
+        id={`${this.id_text}_${idx}`}
+        style={{
+          width: '102px',
+          padding: '5px',
+          marginTop: '5px',
+          textAlign: 'center',
+          boxSizing: 'border-box',
+        }}
+      >
+        <strong
+          id={`${this.id_text}_${idx}_text`}
+          style={{
+            fontSize: '20px'
+          }}
+        >
+          text test
+        </strong>
+      </div>
+    )
+  }
   getTextColor(red, green, blue) {
     const redCalc = parseInt(red, 10) * 0.299;
     const greenCalc = parseInt(green, 10) * 0.587;
@@ -18,38 +41,20 @@ export default class DOMSetter extends React.Component {
         style={{
           display: "inline-block",
           margin: "0 10px",
-          height: "240px"
+          height: "500px"
         }}
         key={imageSrc}
       >
         <img
           src={`./src/images/${imageSrc}.jpg`}
           style={{
-            width: '100px',
+            width: '150px',
             verticalAlign: 'top',
-            border: '1px solid #e9e9e9'
+            border: '1px solid #e9e9e9',
           }}
           alt=""
         />
-        <div
-          id={`${this.id_text}_${idx}`}
-          style={{
-            width: '102px',
-            padding: '5px',
-            marginTop: '5px',
-            textAlign: 'center',
-            boxSizing: 'border-box',
-          }}
-        >
-          <strong
-            id={`${this.id_text}_${idx}_text`}
-            style={{
-              fontSize: '20px'
-            }}
-          >
-            text test
-          </strong>
-        </div>
+        {this.colorBlocksRenderer(idx)}
       </li>)
     })
   }
